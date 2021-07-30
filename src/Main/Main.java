@@ -23,6 +23,10 @@ public class Main {
 //		Problem1SC.problem1SC();
 //		System.out.println("time: " + ((System.nanoTime() - t0) / 1000000d) + " ms");
 		
+		Problem15.Problem15.run();
+		Problem22.Problem22.run();
+		Problem23.Problem23.run();
+		Problem24.Problem24.run();
 		Problem81.Problem81.run();
 		Problem82.Problem82.run();
 		Problem83.Problem83.run();

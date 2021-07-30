@@ -5,69 +5,42 @@
  */
 package Problem15;
 
+import java.math.BigInteger;
+
 /* 
  * @author Per Eresund
  */
 public class Problem15 {
-	private static long getCol(int y, int h) {
-		return h - y;
-	}
+	private static int max = 20;
 	
-	private static long p = 0;
-	private static long getRow(int w, int y, int h) {
-		long tot = h-y;
+	private static BigInteger[][] savedLengths = new BigInteger[max+1][max+1];
+	
+	private static BigInteger parsePos(int x, int y) {
+		int min1 = Math.min(max-x, max-y);
+		int max1 = Math.max(max-x, max-y);
 		
-//		for (int y1 = y-1; y1 > 0; y1--) {
-			for (int x = 1; x <= w-1; x++) {
-			tot += getRow(x, y-1, h);
-//				tot += getRow(x, y1, h);
-//				p++;
-			}
-//		}
-//		if (p % 1 == 0)System.out.println(p);
+		if (savedLengths[min1][max1] != null) {
+			return savedLengths[min1][max1];
+		}
+		
+		BigInteger tot = BigInteger.valueOf(1);
+		if (x < max-1) {
+			tot = tot.add(Problem15.parsePos(x+1, y));
+		}
+		if (y < max-1) {
+			tot = tot.add(Problem15.parsePos(x, y+1));
+		}
+		
+		savedLengths[min1][max1] = tot;
+//		System.out.printf("paths (%d, %d): %s\n", min1, max1, tot.toString());
 		
 		return tot;
 	}
 	
-	private static void printArr(int[] arr) {
-		for (int i : arr) {
-			System.out.print(i + " ");
-		}
-	}
-	
-	private static int getSumUpTo(int n) {
-		int x = 1;
-		for (int i = 2; i <= n; i++) {
-			x += i;
-		}
-		return x;
-	}
-	
 	public static void run() {
-		int w = 20;
-		int h = 20;
-		int tot = 0;
+		BigInteger tot = Problem15.parsePos(0, 0).add(BigInteger.ONE);
 		
-		int[] arr = new int[w-1];
-//		while(arr[0] != 20) {
-			for (int x = w-1; x >= 0; x--) {
-				int y = arr[x];
-				
-				for (int n = w-1; n > x; n++) {
-					tot += 
-				}
-				
-			}
-//		}
-		
-//		long n = 1;
-//		for (int y = h+1; y > 0; y--) {
-//			n += y*w;
-////			for (int x = w; x >= 0; x--) {
-////				n += y*w;
-////			}
-//		}
-		System.out.println(getRow(w, 0, h));
+		System.out.println("Problem15 - Total number of paths: " + tot.toString());
 	}
 }
 

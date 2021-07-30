@@ -25,12 +25,12 @@ public class Problem22 {
 	}
 	
 	private static int getVal(String s) {
-		System.out.println("String: " + s);
+//		System.out.println("String: " + s);
 		
 		int val = 0;
 		for (int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
-			System.out.println("Char: " + c + ", val: " + getVal(c));
+//			System.out.println("Char: " + c + ", val: " + getVal(c));
 			val += getVal(c);
 		}
 		return val;
@@ -54,7 +54,7 @@ public class Problem22 {
 			StringTokenizer tok = new StringTokenizer(line);
 			while (tok.hasMoreTokens()) {
 				String name = tok.nextToken(",\"");
-				System.out.println("Added: " + name);
+//				System.out.println("Added: " + name);
 				names.add(name);
 			}
 		}
@@ -71,6 +71,6 @@ public class Problem22 {
 			String name = names.get(i);
 			total += getVal(name) * (i+1);
 		}
-		System.out.println("Total value: " + total);
+		System.out.println("Problem22 - Total name scores: " + total);
 	}
 }

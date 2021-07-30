@@ -45,6 +45,6 @@ public class Problem23 {
 			}
 		}
 		
-		System.out.print("\nTotal sum\n: " + totalSum);
+		System.out.println("Problem23 - Total sum of non-abundant sums: " + totalSum);
 	}
 }
