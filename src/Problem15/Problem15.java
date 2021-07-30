@@ -37,10 +37,12 @@ public class Problem15 {
 		return tot;
 	}
 	
-	public static void run() {
+	public static void run(String timeFormat) {
+		long t0 = System.nanoTime();
 		BigInteger tot = Problem15.parsePos(0, 0).add(BigInteger.ONE);
+        double t = ((System.nanoTime() - t0) / 1000000d);
 		
-		System.out.println("Problem15 - Total number of paths: " + tot.toString());
+		System.out.printf("Problem15 (" + timeFormat + " ms) - Total number of paths: %s\n" , t, tot.toString());
 	}
 }
 

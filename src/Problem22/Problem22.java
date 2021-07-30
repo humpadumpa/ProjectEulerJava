@@ -36,7 +36,9 @@ public class Problem22 {
 		return val;
 	}
 	
-	public static void run() {
+	public static void run(String timeFormat) {
+		long t0 = System.nanoTime();
+		
 		ArrayList<String> names = new ArrayList<>();
 		
 		File f = new File("src/p022_names.txt");
@@ -71,6 +73,9 @@ public class Problem22 {
 			String name = names.get(i);
 			total += getVal(name) * (i+1);
 		}
-		System.out.println("Problem22 - Total name scores: " + total);
+		
+		double t = ((System.nanoTime() - t0) / 1000000d);
+		
+		System.out.printf("Problem22 (" + timeFormat + " ms) - Total name scores: %s\n" , t, total);
 	}
 }

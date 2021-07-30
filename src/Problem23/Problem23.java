@@ -33,7 +33,9 @@ public class Problem23 {
 		return (sum > num);
 	}
 	
-	public static void run() {
+	public static void run(String timeFormat) {
+		long t0 = System.nanoTime();
+		
 		ArrayList<Integer> abundants = new ArrayList<>();
 		int totalSum = 0;
 		for (int i = 1; i < 28134; i++) {
@@ -44,7 +46,8 @@ public class Problem23 {
 				abundants.add(i);
 			}
 		}
+		double t = ((System.nanoTime() - t0) / 1000000d);
 		
-		System.out.println("Problem23 - Total sum of non-abundant sums: " + totalSum);
+		System.out.printf("Problem23 (" + timeFormat + " ms) - Total sum of non-abundant sums: %s\n" , t, totalSum);
 	}
 }

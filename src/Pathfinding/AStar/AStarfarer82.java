@@ -125,7 +125,7 @@ public final class AStarfarer82 {
 	void printFrontier() {
 		int i = 0;
 		for(Position p : frontier) {
-			System.out.println("i: " + i++ + ", prio: " + p.priority);
+			//System.out.println("i: " + i++ + ", prio: " + p.priority);
 		}
 	}
 	
@@ -176,7 +176,7 @@ public final class AStarfarer82 {
 				addPrioritized(next, priority, heuristic);
 			}
 		}
-		System.out.println("a: " + ++a);
+		//System.out.println("a: " + ++a);
 	}
 	
 	public void generatePath() {

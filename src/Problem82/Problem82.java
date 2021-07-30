@@ -19,7 +19,8 @@ import java.util.logging.Logger;
  * @author Per Eresund
  */
 public class Problem82 {
-	public static void run() {
+	public static void run(String timeFormat) {
+		long t0 = System.nanoTime();
 		int size = 80;
 		StandardNode[][] map = new StandardNode[size][size];
 		File f = new File("src/p083_matrix.txt");
@@ -54,7 +55,10 @@ public class Problem82 {
 				min = Math.min(min, finder.getCost(size-1, y));
 			}
 		}
-		System.out.println("min: " + min);
+		
+        double t = ((System.nanoTime() - t0) / 1000000d);
+		
+		System.out.printf("Problem82 (" + timeFormat + " ms) - Minimal path sum for 3 ways: %s\n" , t, min);
 		
 //		for (y = 0; y < size; y++) {
 //			for (x = 0; x < size; x++) {

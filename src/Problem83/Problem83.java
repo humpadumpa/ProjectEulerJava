@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * @author Per Eresund
  */
 public class Problem83 {
-	public static void run() {
+	public static void run(String timeFormat) {
 //		Scanner scan = new Scanner(System.in);
 		System.out.print("");
 		
@@ -86,11 +86,15 @@ public class Problem83 {
 //		}
 		
 		AStarfarer83 finder = new AStarfarer83(map, 0, 0, size-1, size-1);
+		
 		long t0 = System.nanoTime();
 		finder.start();
-		System.out.println("time: " + ((System.nanoTime() - t0) / 1000000d) + " ms");
+		double t = ((System.nanoTime() - t0) / 1000000d);
+		
+		System.out.printf("Problem83 (" + timeFormat + " ms) - Minimal path sum for 4 ways: %s\n" , t, finder.getCost(size-1, size-1));
 		finder.generatePath();
-		System.out.print(finder.getCost(size-1, size-1) + "\n");
+		
+		if (true) return;
 //		int x, y;
 		
 		System.out.println("\n|------------------------------------------|");

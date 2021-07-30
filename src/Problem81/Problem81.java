@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
  * @author Per Eresund
  */
 public class Problem81 {
-	public static void run() {
+	public static void run(String timeFormat) {
 		int size = 80;
 		StandardNode[][] map = new StandardNode[size][size];
 		File f = new File("src/p083_matrix.txt");
@@ -42,11 +42,16 @@ public class Problem81 {
 		}
 		
 		AStarfarer81 finder = new AStarfarer81(map, 0, 0, size-1, size-1);
+		
 		long t0 = System.nanoTime();
 		finder.start();
-		System.out.println("time: " + ((System.nanoTime() - t0) / 1000000d) + " ms");
+		double t = ((System.nanoTime() - t0) / 1000000d);
+		
+		System.out.printf("Problem81 (" + timeFormat + " ms) - Minimal path sum for 2 ways: %s\n" , t, finder.getCost(size-1, size-1));
+		
 		finder.generatePath();
-		System.out.print(finder.getCost(size-1, size-1) + "\n");
+		
+		if (true) return;
 		
 		for (y = 0; y < size; y++) {
 			for (x = 0; x < size; x++) {
